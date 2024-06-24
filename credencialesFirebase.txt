@@ -1,0 +1,5 @@
+Para firebase se utilizan las siguientes credenciales:
+Usuario: sistemasuessv@gmail.com
+Clave:Minerva2023$
+
+a veces pide codigo de confirmación la primera vez que se conecten, escribanme antes por que el codigo vence en minutos y yo les mando el codigo de confirmacion

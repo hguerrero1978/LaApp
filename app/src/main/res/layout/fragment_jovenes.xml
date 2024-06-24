@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Contenido principal -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Contenido principal aquí (incluyendo RecyclerView) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_jovenes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/search_joven" />
+
+        <!-- ImageButton para abrir el menú lateral -->
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_joven"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageButton
+            android:id="@+id/btn_open_menu"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="4dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:contentDescription="Abrir menu"
+            android:scaleType="fitCenter"
+            android:src="@drawable/filtrar" />
+    </RelativeLayout>
+
+    <!-- Menú lateral -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        />
+    <!-- app:menu="@menu/menu_jovenes" -->
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
+
+

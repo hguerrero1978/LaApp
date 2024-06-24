@@ -1,0 +1,5 @@
+#elegir la version de node correcta
+nvm use 18.12.1
+
+#se firma el archivo aab la clave es llevame esto es para play store
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore "D:\Sistemas TI\llave para firmas play store\llevame-key.keystore" "D:\GitHub\unichamba-Android\dist\cordova\android\bundle\release\app-release.aab" llevame

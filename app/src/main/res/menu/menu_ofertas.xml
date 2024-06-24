@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<group android:checkableBehavior="none">
+    <item
+        android:id="@+id/option_carrera"
+        android:checkable="false"
+        android:title="Carrera"
+        app:actionViewClass="android.widget.LinearLayout"
+        tools:ignore="MenuTitle"
+        android:textSize="28sp"
+        android:textColor="@color/blued"
+        android:layout_gravity="center_vertical" >
+        <menu>
+
+        </menu>
+    </item>
+</group>
+</menu>

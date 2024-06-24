@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="registro_para_estudiantes_unichamba" tools:ignore="ExtraTranslation">Registro Para Estudiantes UniChamba</string>
+    <string name="eres_reclutador" tools:ignore="ExtraTranslation">Eres Reclutador?</string>
+    <string name="crear_una_oferta">Crear una Oferta</string>
+    <string name="municipio">Municipio*</string>
+    <string name="carrera">Carrera*</string>
+    <string name="imagen">Imagen*</string>
+    <string name="imagen_seleccionada">Imagen seleccionada</string>
+</resources>

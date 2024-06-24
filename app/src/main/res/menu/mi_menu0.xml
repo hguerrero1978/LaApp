@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <item
+        android:id="@+id/Item_Inicio"
+        android:title="@string/Item_Inicio"
+        android:icon="@drawable/ic_inicio" />
+
+
+    <item
+        android:id="@+id/Item_sitio"
+        android:title="Sitio_Web"
+        android:icon="@drawable/ic_chats"
+        android:clickable="true"/>
+
+    <item
+        android:id="@+id/Item_Terminos"
+        android:title="Terminos y Condiciones"
+        android:icon="@drawable/ic_chats"
+        android:clickable="true"/>
+
+
+</menu>
+

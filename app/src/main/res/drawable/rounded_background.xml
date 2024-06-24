@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Fondo cuando está seleccionado -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="8dp" />
+            <solid android:color="@color/material_on_background_disabled" /> <!-- Color de fondo cuando está seleccionado -->
+        </shape>
+    </item>
+    <!-- Fondo predeterminado -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="8dp" />
+            <solid android:color="@color/material_on_background_disabled" /> <!-- Color de fondo predeterminado -->
+        </shape>
+    </item>
+</selector>

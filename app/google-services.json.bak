@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "928595733049",
+    "firebase_url": "https://unichamba-app-default-rtdb.firebaseio.com",
+    "project_id": "com.unichamba",
+    "storage_bucket": "unichamba-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:928595733049:android:715a35bbe98ebd9c9fbbe8",
+        "android_client_info": {
+          "package_name": "com.appunichamba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "928595733049-af2qu30c71qlu3v8ff94fscq1vb0bd5s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.appunichamba",
+            "certificate_hash": "768595dae788b30619f393198639a38654c134e7"
+          }
+        },
+        {
+          "client_id": "928595733049-6u956spq0t0f0m838j35me6beuvpcdeu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfFceUFCBg2E8h1Qa7tWkEkuB4PsfsTGc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "928595733049-6u956spq0t0f0m838j35me6beuvpcdeu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

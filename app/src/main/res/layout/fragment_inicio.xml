@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="15dp"
+    android:paddingVertical="10dp"
+    tools:context=".Fragmentos.FragmentInicio">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardJovenes"
+        android:layout_width="match_parent"
+        android:layout_height="290dp"
+        android:layout_marginBottom="1dp"
+        app:cardBackgroundColor="@color/blued"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardAnuncios"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:layout_marginTop="5dp"
+            android:text="@string/jovenes"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+        <!-- esto es para fines de diseño aqui se utiliza 1 solo y se cambian los valores -->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_jovenes_inicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="16dp" />
+
+        <Button
+            android:id="@+id/btnJovenes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginEnd="5dp"
+
+            android:backgroundTint="#1AD361"
+            android:contentDescription="Mostrar más opciones para jóvenes"
+            android:text="Ver más"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardAnuncios"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:cardBackgroundColor="@color/blued"
+        android:layout_marginTop="1dp"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardJovenes"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:text="@string/anuncios"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_ofertas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="16dp" />
+        <Button
+            android:id="@+id/btnOfertas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#1AD361"
+            android:text="Ver más"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_gravity="end|bottom"
+            app:layout_constraintTop_toBottomOf="@+id/cardAnuncios"
+            android:layout_marginEnd="5dp"/>
+    </androidx.cardview.widget.CardView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

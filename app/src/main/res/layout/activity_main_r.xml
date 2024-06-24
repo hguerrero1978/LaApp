@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivityR">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <!-- Contenido principal -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Toolbar -->
+            <RelativeLayout
+                android:id="@+id/ToolbarRl"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m_toolbar_height"
+                android:background="#04061A">
+
+                <TextView
+                    android:id="@+id/TituloRL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/TituloRL"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="5dp"
+                    android:src="@mipmap/logofinal2_round" />
+
+                <ImageButton
+
+                    android:id="@+id/btnBack"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:background="@null"
+                    android:padding="10dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_menu_hamburger"
+                    app:tint="@color/white"
+                    tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="#ccc" />
+            </RelativeLayout>
+
+            <!-- FrameLayout para fragmentos -->
+            <FrameLayout
+                android:id="@+id/FragmentL1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/View1"
+                android:layout_below="@+id/ToolbarRl" />
+
+            <!-- View como divisor -->
+            <View
+                android:id="@+id/View1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_above="@+id/BottonNV"
+                android:background="#ccc" />
+
+            <!-- Bottom Navigation -->
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/BottonNV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="#04061A"
+                android:backgroundTint="@color/negro1"
+                app:itemTextColor="@color/white"
+                app:labelVisibilityMode="labeled"
+                app:menu="@menu/mi_menu1"
+                app:tint="@color/white" />
+
+        </RelativeLayout>
+
+        <!-- Menú lateral (NavigationView) -->
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/mi_menu1"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@color/blued"
+
+            app:itemTextColor="@color/white"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/mi_menu1" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

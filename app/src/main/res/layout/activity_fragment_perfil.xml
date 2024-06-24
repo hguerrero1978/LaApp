@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Fragmentos.FragmentCuenta">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="30dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="25dp"
+                android:src="@drawable/logo4a" />
+
+
+            <RelativeLayout
+                android:id="@+id/perfilRL"
+                android:layout_below="@+id/Txt_editar_p"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_width="150dp"
+                android:layout_height="120dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_perfil"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/user"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_gravity="center"/>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/FABCambiarImg"
+                    android:layout_alignParentEnd="true"
+                    app:fabSize="mini"
+                    android:src="@drawable/cambiar_img"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"/>
+
+            </RelativeLayout>
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginRight="25dp"
+                android:text="Datos Personales"
+                android:textSize="40sp" />
+
+            <!--Nombre-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp">
+
+                <EditText
+                    android:id="@+id/nombreEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="25dp"
+                    android:hint="Nombres *"
+                    android:inputType="textPersonName"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Apellido-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp">
+
+                <EditText
+                    android:id="@+id/apellidoEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="25dp"
+                    android:hint="Apellidos *"
+                    android:inputType="textPersonName"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <!--Telefono-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp">
+
+                <EditText
+                    android:id="@+id/telefonoEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="25dp"
+                    android:hint="Teléfono *"
+                    android:inputType="textPersonName"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Whatsapp-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp">
+
+                <EditText
+                    android:id="@+id/whatsappEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="25dp"
+                    android:hint="Whatsapp *"
+                    android:inputType="textPersonName"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Descripcion-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp">
+
+                <EditText
+                    android:id="@+id/descripcionEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:inputType="textMultiLine"
+                    android:hint="Agrega una descripción *"
+                    android:textSize="15sp"
+                    android:gravity="top"
+                    android:maxLines="10"
+                    android:minLines="5" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Fecha de Nacimiento:" />
+
+            <EditText
+                android:id="@+id/fechaNacimientoEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Selecciona tu fecha de nacimiento"
+                android:focusable="false"
+                android:clickable="true"
+                android:inputType="none" />
+
+            <Button
+                android:id="@+id/btnSeleccionarFecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Seleccionar Fecha" />
+
+
+
+
+            <!--Municipio-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginRight="25dp"
+                android:text="¿De dónde eres?"
+                android:textSize="20sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp">
+
+                <Spinner
+                    android:id="@+id/municipioSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginBottom="10dp"
+                    android:spinnerMode="dialog" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Carrera-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginRight="25dp"
+                android:text="¿Qué carrera estudias?"
+                android:textSize="20sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp">
+
+                <Spinner
+                    android:id="@+id/carreraSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginBottom="10dp"
+                    android:spinnerMode="dialog" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Aptitudes-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginRight="25dp"
+                android:text="¿En qué areas te gustaría trabajar?"
+                android:textSize="20sp" />
+
+            <!--Trabajos-->
+            <LinearLayout
+                android:id="@+id/checkboxContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_marginTop="16dp">
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnCargarCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Adjuntar CV"
+                />
+
+
+            <!--Boton Enviar-->
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGuardarCambios"
+                android:layout_width="180dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:text="Guardar Cambios"
+                android:textAllCaps="true">
+
+            </com.google.android.material.button.MaterialButton>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </RelativeLayout>
+</ScrollView>

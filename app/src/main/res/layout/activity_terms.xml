@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Términos y Condiciones"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:layout_marginTop="24dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:id="@+id/terms_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/terms_and_conditions"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:gravity="start|end" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/accept_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="Aceptar"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#1AD361"
+        android:textAllCaps="false" />
+
+    <Button
+            android:id="@+id/decline_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Rechazar"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/red"
+        android:textColor="@color/white" />
+
+</LinearLayout>

@@ -1,0 +1,123 @@
+<resources>
+    <string name="app_name">App UniChamba</string>
+    <string name="default_web_client_id" translatable="false">139568571677-tdhbm1vrbs6dfinj3fd9f7efe659k56d.apps.googleusercontent.com</string>
+
+    <string name="Item_Inicio">Inicio</string>
+    <string name="Item_Chats">Chats</string>
+    <string name="Item_Publicar_Oferta">Publicar</string>
+    <string name="Item_Mis_Ofertas">Ofertas</string>
+    <string name="Item_Cuenta">Cuenta</string>
+
+    <string name="TituloRL">Titulo</string>
+    <string name="TituloUni">UNICHAMBA APP</string>
+
+    <string name="Ingresar_email">Ingresar con Email</string>
+    <string name="Ingresar_google">Ingresar con Google</string>
+    <string name="Ingresar_googleR">Ingresar con Google</string>
+
+    <string name="Txt_login">INICIO DE SESION UNICHAMBA</string>
+    <string name="ET_email">Email</string>
+    <string name="ET_password">Contraseña</string>
+    <string name="Btn_ingresar">Ingresar</string>
+    <string name="Txt_no_cuenta">¿ No tienes una cuenta ?</string>
+    <string name="Txt_ContraSegura">Crea una contraseña segura con una combinación de letras, números y símbolos</string>
+    <string name="Txt_creditos">UnichambaApp DSI1 2024</string>
+    <string name="Txt_registrarme">INGRESA AQUI</string>
+
+
+    <string name="Txt_registro">Registro de Usuario</string>
+    <string name="Txt_olvide_pass">He olvidado mi contraseña</string>
+    <string name="Tv_recuperar">Recuperar</string>
+    <string name="Et_r_password">Repetir Contraseña</string>
+    <string name="Btn_registrar">Registrar</string>
+    <string name="Btn_cerrar_sesion">Cerrar sesión</string>
+    <string name="Txt_olvide_password">Olvidé mi contraseña</string>
+    <string name="Txt_instrucciones">¿Olvidó su contraseña? Ingrese su correo electrónico resgistrado. Le
+    enviaremos las instrucciones de recuperacion</string>
+    <string name="Btn_enviar_instrucciones">Enviar</string>
+
+
+    <string name="todo">TODO</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="terms_and_conditions">
+        Por favor, lea estos términos y condiciones antes de utilizar nuestro servicio. \n
+        \n
+<b>1. Aceptación de los Términos:</b> Al utilizar nuestro servicio, acepta estar legalmente obligado por estos términos y condiciones y nuestra Política de Privacidad.\n
+        \n
+<b>2. Tener :</b> Tener 18 años cumplidos o más.\n
+        \n
+<b>3. Uso Adecuado:</b> Se compromete a utilizar nuestro servicio solo con fines legales y de acuerdo con estos términos y condiciones.\n
+        \n
+<b>4. Privacidad:</b> Su información personal se recopila y utiliza de acuerdo con nuestra Política de Privacidad.\n
+        \n
+<b>5. Modificaciones de los Términos:</b> Nos reservamos el derecho de modificar estos términos en cualquier momento.\n
+        \n
+<b>6. Limitación de Responsabilidad:</b> No seremos responsables de ningún daño directo, indirecto, incidental, especial, consecuente o ejemplar que resulte del uso o la imposibilidad de uso del servicio.\n
+        \n
+<b>7. Cancelación y Terminación:</b> Nos reservamos el derecho de cancelar o suspender su acceso al servicio en cualquier momento, sin previo aviso, por cualquier motivo, incluyendo, sin limitación, el incumplimiento de estos términos y condiciones.\n
+        \n
+<b>8. Uso de la Cámara del Dispositivo:</b> Al utilizar nuestro servicio, puede permitirnos acceder a la cámara de su dispositivo móvil. Cualquier imagen o video capturado a través de nuestra aplicación será recopilado y utilizado de acuerdo con nuestra Política de Privacidad. Usted es responsable de garantizar que el uso de la cámara no infrinja los derechos de privacidad de terceros.\n
+        \n
+<b>9. Consentimiento para el Uso de Datos de la Cámara:</b> Al habilitar el acceso a la cámara de su dispositivo, usted consiente la recopilación, almacenamiento y uso de imágenes y videos según se describe en nuestra Política de Privacidad. Puede desactivar el acceso a la cámara en cualquier momento a través de la configuración de su dispositivo.\n
+        \n
+Al utilizar nuestro servicio, acepta estos términos y condiciones en su totalidad. Si no está de acuerdo con ellos, no utilice nuestro servicio.\n
+        \n
+</string>
+    <string name="txt_estudiante">Estudiante</string>
+    <string name="txt_reclutador">Reclutador</string>
+    <string name="mostrar_ocultar">Estudiante/Reclutador</string>
+    <string name="texto_a_mostrar">Texto a Mostrar</string>
+    <string name="mostrar_texto">Mostrar Texto</string>
+    <string name="buscar">Buscar</string>
+    <string name="filtrar">Filtrar</string>
+    <string name="perfil_1">Perfil 1</string>
+    <string name="obrero">Obrero</string>
+    <string name="jovenes">Jovenes</string>
+
+    <!--Crear anuncios-->
+    <string name="Et_titulo">Titulo</string>
+    <string name="Et_municipio">Municipio</string>
+    <string name="Et_imagen">Imagen</string>
+    <string name="seleccionar">Seleccionar Imagen</string>
+    <string name="descripcion">¡Hola! Queremos crear aplicaciones con experiencia en...</string>
+    <!--
+    <string name="Et_descripcion">Descripcion</string>
+    <string name="Et_carrera">Descripcion</string>
+    -->
+    <string name="fab_content_description">Agregar elemento</string>
+    <string name="anuncios">Ofertas</string>
+    <string name="publicar_oferta">Publicar Oferta</string>
+
+    <!--Editar Perfil-->
+
+    <string name="Txt_editar_p">Editar Perfil</string>
+    <string name="Et_nombre">Nombre</string>
+    <string name="Et_apellido">Apellido</string>
+    <string-array name="municipios_array">
+        <item>Ahuachapán</item>
+        <item>Candelaria de la Frontera</item>
+        <item>Chalchuapa</item>
+        <item>Coatepeque</item>
+        <item>El Congo</item>
+        <item>El Porvenir</item>
+        <item>Masahuat</item>
+        <item>Metapán</item>
+        <item>San Antonio Pajonal</item>
+        <item>San Sebastián Salitrillo</item>
+        <item>Santa Ana</item>
+        <item>Santiago de la Frontera</item>
+        <item>Texistepeque</item>
+    </string-array>
+    <string name="Et_educacion">Educación</string>
+    <string name="Et_carrera">Carrera</string>
+    <string name="Et_telefono">Teléfono</string>
+    <string name="Et_descripcion">Descripción</string>
+    <string name="Guardar">Guardar</string>
+    <string name="crear_una_oferta">Crear una Oferta</string>
+    <string name="municipio">Municipio*</string>
+    <string name="carrera">Carrera*</string>
+    <string name="imagen">Imagen*</string>
+    <string name="imagen_seleccionada">Imagen seleccionada</string>
+    <string name="icon_prefix">\u</string>
+</resources>

@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.AppUniChamba" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/blued</item>
+    </style>
+
+    <style name="Theme.AppUniChamba" parent="Base.Theme.AppUniChamba" >
+         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="Theme.Formulario" parent="Base.Theme.AppUniChamba" >
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+</resources>

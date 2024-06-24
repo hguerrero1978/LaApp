@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/option_trabajo"
+            android:checkable="false"
+            android:title="Trabajo"
+            app:actionViewClass="android.widget.LinearLayout"
+            tools:ignore="MenuTitle">>
+            <menu>
+                <item
+                    android:id="@+id/suboption_pasear_perros"
+                    android:checkable="false"
+                    app:actionViewClass="android.widget.CheckBox" />
+                <item
+                    android:id="@+id/suboption_cortar_cesped"
+                    android:checkable="false"
+                    app:actionViewClass="android.widget.CheckBox" />
+                <item
+                    android:id="@+id/suboption_pintar_casas"
+                    android:checkable="false"
+                    app:actionViewClass="android.widget.CheckBox" />
+                <item
+                    android:id="@+id/suboption_cuidar_bebes"
+                    android:checkable="false"
+                    app:actionViewClass="android.widget.CheckBox" />
+                <!-- Agrega más opciones de trabajo -->
+            </menu>
+        </item>
+        <item
+            android:id="@+id/option_carrera"
+            android:checkable="false"
+            android:title="Carrera"
+            app:actionViewClass="android.widget.LinearLayout"
+            tools:ignore="MenuTitle">
+            <menu>
+                <item
+                    android:id="@+id/suboption_ingeniería"
+                    android:checkable="false"
+                    app:actionViewClass="android.widget.CheckBox" />
+                <item
+                    android:id="@+id/suboption_medicina"
+                    android:checkable="false"
+                    app:actionViewClass="android.widget.CheckBox" />
+                <item
+                    android:id="@+id/suboption_idiomas"
+                    android:checkable="false"
+                    app:actionViewClass="android.widget.CheckBox" />
+                <item
+                    android:id="@+id/suboption_administracion_de_empresas"
+                    android:checkable="false"
+                    app:actionViewClass="android.widget.CheckBox" />
+                <!-- Agrega más opciones de carrera -->
+            </menu>
+        </item>
+        <item
+            android:id="@+id/option_municipio"
+            android:checkable="false"
+            android:title="Municipio"
+            app:actionViewClass="android.widget.LinearLayout"
+            tools:ignore="MenuTitle">>
+            <menu>
+                <item
+                    android:id="@+id/suboption_santa_ana"
+                    android:checkable="false"
+                    app:actionViewClass="android.widget.CheckBox" />
+                <item
+                    android:id="@+id/suboption_chalchuapa"
+                    android:checkable="false"
+                    app:actionViewClass="android.widget.CheckBox" />
+                <item
+                    android:id="@+id/suboption_metapan"
+                    android:checkable="false"
+                    app:actionViewClass="android.widget.CheckBox" />
+                <item
+                    android:id="@+id/suboption_candelaria_de_la_frontera"
+                    android:checkable="false"
+                    app:actionViewClass="android.widget.CheckBox" />
+                <!-- Agrega más opciones de municipio -->
+            </menu>
+        </item>
+        <!-- Agrega más categorías según necesites -->
+    </group>
+</menu>

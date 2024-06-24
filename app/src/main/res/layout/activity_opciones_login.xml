@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- AQUI CREE LOS BOTONES Y AÑADI LOS ICONOS DE LOGIN -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OpcionesLogin"
+    tools:ignore="ExtraText">
+
+    >
+
+    <!-- AQUI va el ICONO DE UNICHAMBA-->
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="180dp"
+        android:src="@drawable/rectangle2" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/rectangle2"
+        android:scaleType="centerCrop" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="270dp"
+        android:src="@drawable/barra" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:outlineAmbientShadowColor="@color/azulPalido"
+        android:padding="30dp"
+        tools:ignore="UnusedAttribute">
+
+
+        <!--<ImageView
+            android:layout_marginTop="150dp"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:src="@drawable/email" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/Ingresar_email"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m_button_height"
+            android:text="@string/Ingresar_email"
+            android:textAllCaps="true"
+            app:cornerRadius="8dp"/>-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registro Para Estudiantes UniChamba"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/logo4" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/google" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/Ingresar_google"
+            android:layout_width="160dp"
+            android:layout_height="60dp"
+            android:text="@string/Ingresar_google"
+            android:textAllCaps="true"
+            app:cornerRadius="80dp" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="260dp"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Eres Reclutador?"
+                />
+
+            <TextView
+                android:id="@+id/registrarmeR"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/Txt_registrarme"
+                android:textSize="20sp"
+                android:textColor="@color/azulPalido"
+                android:textStyle="bold" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--<ImageView
+            android:layout_width="190dp"
+            android:layout_height="210dp"
+            android:layout_marginTop="1dp"
+            android:src="@drawable/logo3" />-->
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:gravity="right"
+            android:text="@string/Txt_creditos" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="1dp"
+            android:src="@drawable/barra" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</RelativeLayout>

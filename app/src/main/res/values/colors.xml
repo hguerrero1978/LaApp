@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="naranja">#FFA500</color>
+
+    <color name="colorPrimaryDark">#2d3250</color>
+    <color name="colorAccent">#360536</color>
+    <color name="blued">#04061A</color>
+    <color name="red">#ffff0000</color>
+    <color name="gris">#333333</color>
+
+    <!--paleta de colores -->
+    <color name="negro1">#04061A</color>
+    <color name="Verde">#1AD361</color>
+    <color name="azulPalido">#2D3250</color>
+    <color name="azul">#0A05FE</color>
+    <color name="ocre">#360536</color>
+
+    <color name="gray">#757575</color>
+    <color name="primaryColor">#3F51B5</color>
+
+</resources>
