@@ -63,7 +63,7 @@ class OpcionesLogin : AppCompatActivity() {
     }
 
     private fun googleLogin() {
-        val googleSignInIntent=mGoogleSignIntent.signInIntent
+        val googleSignInIntent = mGoogleSignIntent.signInIntent
         googleSignInARL.launch(googleSignInIntent)
     }
 
@@ -88,37 +88,13 @@ class OpcionesLogin : AppCompatActivity() {
             val credential = GoogleAuthProvider.getCredential(idToken, null)
             firebaseAuth.signInWithCredential(credential)
                 .addOnSuccessListener { authResult ->
-                    val firebaseUser = firebaseAuth.currentUser
-                    val email = firebaseUser!!.email
-                    if (authResult.additionalUserInfo!!.isNewUser) {
-                        Toast.makeText(
-                            this@OpcionesLogin,
-                            "La cuenta $email se ha creado con éxito",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    } else {
-                        Toast.makeText(
-                            this@OpcionesLogin,
-                            "Ha iniciado sesión con $email",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-
-                    // Redirigir al perfil del joven si el ID está presente en el intent
-                    val jovenId = intent.getStringExtra(JovenesDetalleActivity.EXTRA_ID)
-                    if (jovenId != null) {
-                        val intent = Intent(this@OpcionesLogin, JovenesDetalleActivity::class.java).apply {
-                            putExtra(JovenesDetalleActivity.EXTRA_ID, jovenId)
-                        }
-                        startActivity(intent)
-                    } else {
-                        startActivity(Intent(this@OpcionesLogin, MainActivity::class.java))
-                    }
+                    // Aquí manejas el éxito de la autenticación
+                    startActivity(Intent(this@OpcionesLogin, MainActivity::class.java))
                     finish()
                 }
                 .addOnFailureListener { e ->
-                    Toast.makeText(this@OpcionesLogin, "Inicio de sesión fallido", Toast.LENGTH_SHORT)
-                        .show()
+                    // Manejo de errores
+                    Toast.makeText(this@OpcionesLogin, "Inicio de sesión fallido: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
         }
     }
