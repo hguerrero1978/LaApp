@@ -16,7 +16,7 @@ class CustomToast(private val context: Context, private val message: String) : T
         textView.text = message
 
         val imageView = view.findViewById<ImageView>(R.id.imgIcono)
-        imageView.setImageResource(R.drawable.location)
+        imageView.setImageResource(R.drawable.logo4)
 
         setView(view)
         setDuration(Toast.LENGTH_SHORT)

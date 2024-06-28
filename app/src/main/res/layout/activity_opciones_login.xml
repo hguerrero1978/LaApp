@@ -58,7 +58,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Registro Para Estudiantes UniChamba"
+            android:text="Registro Para Estudiantes y Reclutadores UniChamba"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -85,30 +85,6 @@
             android:text="@string/Ingresar_google"
             android:textAllCaps="true"
             app:cornerRadius="80dp" />
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="260dp"
-            android:layout_height="45dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Eres Reclutador?"
-                />
-
-            <TextView
-                android:id="@+id/registrarmeR"
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="@string/Txt_registrarme"
-                android:textSize="20sp"
-                android:textColor="@color/azulPalido"
-                android:textStyle="bold" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <!--<ImageView
             android:layout_width="190dp"

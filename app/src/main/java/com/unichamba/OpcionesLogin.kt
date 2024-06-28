@@ -17,6 +17,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.database.FirebaseDatabase
+import com.unichamba.Fragmentos.FragmentJovenes
 
 class OpcionesLogin : AppCompatActivity() {
 
@@ -27,6 +28,14 @@ class OpcionesLogin : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+       /* if (FirebaseAuth.getInstance().currentUser == null) {
+            // No logueado, redirigir a la pantalla de login
+            startActivity(Intent(this, OpcionesLogin::class.java))
+            finish()
+            return
+        }*/
+
         binding= ActivityOpcionesLoginBinding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(binding.root)
@@ -50,9 +59,6 @@ class OpcionesLogin : AppCompatActivity() {
             googleLogin()
         }
 
-        binding.registrarmeR.setOnClickListener {
-            startActivity(Intent(this@OpcionesLogin,Registro_reclutador::class.java))
-        }
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -63,8 +69,12 @@ class OpcionesLogin : AppCompatActivity() {
     }
 
     private fun googleLogin() {
-        val googleSignInIntent = mGoogleSignIntent.signInIntent
-        googleSignInARL.launch(googleSignInIntent)
+        // Primero, cerrar la sesión de cualquier cuenta de Google existente
+        mGoogleSignIntent.signOut().addOnCompleteListener {
+            // Una vez que la sesión se haya cerrado, iniciar el intento de inicio de sesión
+            val googleSignInIntent = mGoogleSignIntent.signInIntent
+            googleSignInARL.launch(googleSignInIntent)
+        }
     }
 
     private val googleSignInARL=registerForActivityResult(
@@ -88,16 +98,45 @@ class OpcionesLogin : AppCompatActivity() {
             val credential = GoogleAuthProvider.getCredential(idToken, null)
             firebaseAuth.signInWithCredential(credential)
                 .addOnSuccessListener { authResult ->
-                    // Aquí manejas el éxito de la autenticación
-                    startActivity(Intent(this@OpcionesLogin, MainActivity::class.java))
+                    val firebaseUser = firebaseAuth.currentUser
+                    val email = firebaseUser!!.email
+                    // Verificar si el correo electrónico cumple con el formato de empleado
+                    if (email!!.matches(Regex("^[a-zA-Z]+\\.[a-zA-Z]+@ues\\.edu\\.sv$"))) {
+                        // Redirigir a MainActivityR si es empleado
+                        startActivity(Intent(this@OpcionesLogin, MainActivityR::class.java))
+                    } else {
+                        // Redirigir a MainActivity si no es empleado
+                        startActivity(Intent(this@OpcionesLogin, MainActivity::class.java))
+                    }
                     finish()
                 }
                 .addOnFailureListener { e ->
-                    // Manejo de errores
-                    Toast.makeText(this@OpcionesLogin, "Inicio de sesión fallido: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@OpcionesLogin, "Inicio de sesión fallido", Toast.LENGTH_SHORT)
+                        .show()
                 }
         }
     }
+                    /*when {
+                        email.matches(Regex("[^\\.]+@ues\\.edu\\.sv")) -> {
+                            // Es un estudiante
+                            startActivity(Intent(this@OpcionesLogin, MainActivity::class.java))
+                        }
+                        email.matches(Regex("[^\\.]+\\.[^\\.]+@ues\\.edu\\.sv")) -> {
+                            // Es un empleado
+                            startActivity(Intent(this@OpcionesLogin, MainActivityR::class.java))
+                        }
+                        else -> {
+                            // Es un usuario externo
+                            // Permitir ver el detalle de un perfil de estudiante sin registro o publicación
+                            startActivity(Intent(this@OpcionesLogin, MainActivity::class.java))
+                        }
+                    }
+                    finish()
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(this@OpcionesLogin, "Inicio de sesión fallido", Toast.LENGTH_SHORT)
+                        .show()
+                }*/
 
     /*
     private fun llenarInfoBD() {

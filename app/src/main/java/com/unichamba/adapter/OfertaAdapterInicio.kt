@@ -34,6 +34,7 @@ class OfertaAdapterInicio(private var ofertas: List<Oferta>) : RecyclerView.Adap
                     val intent = Intent(context, OfertaDetalleActivity::class.java).apply {
                         putExtra(OfertaDetalleActivity.EXTRA_quienPublica, oferta.quienPublica)
                         putExtra(OfertaDetalleActivity.EXTRA_DESCRIPTION, oferta.description)
+                        putExtra(OfertaDetalleActivity.EXTRA_TELEFONO, oferta.telefono)
                         putExtra(OfertaDetalleActivity.EXTRA_CARRERA, oferta.carrera.toTypedArray())
                         putExtra(OfertaDetalleActivity.EXTRA_IMAGEN, oferta.imagen)
                     }

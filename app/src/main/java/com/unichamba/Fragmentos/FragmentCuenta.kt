@@ -54,12 +54,50 @@ class FragmentCuenta : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         firebaseAuth=FirebaseAuth.getInstance()
 
+        // Obtener el correo electrónico del usuario autenticado
+        val emailUsuario = firebaseAuth.currentUser?.email ?: ""
+
+        // Verificar si el usuario es estudiante o empleado
+        val esEstudianteOEmpleado = emailUsuario.endsWith("@ues.edu.sv") && (emailUsuario.contains("."))
+
+        // Si no es estudiante ni empleado, ocultar todos los campos
+        if (!esEstudianteOEmpleado) {
+            ocultarCampos()
+        } else {
+            // Cargar y mostrar la información del usuario
+            leerInfo()
+        }
+
+        // Obtener el correo electrónico del usuario actual
+        val email = firebaseAuth.currentUser?.email
+
+        // Verificar si el correo electrónico cumple con los criterios para ser considerado de un estudiante
+        val esEstudiante = email?.let {
+            it.endsWith("@ues.edu.sv") && !it.substringBefore("@ues.edu.sv").contains(".")
+        } ?: false
+
+        // Habilitar o deshabilitar el botón de editar perfil basado en si es estudiante o no
+        val btnEditarPerfil: Button = view.findViewById(R.id.btn_editar_perfil)
+        btnEditarPerfil.isEnabled = esEstudiante
+
+        if (esEstudiante) {
+            btnEditarPerfil.setOnClickListener {
+                val intent = Intent(mContext, FragmentPerfil::class.java)
+                startActivity(intent)
+            }
+        } else {
+            // Opcional: Mostrar un mensaje indicando por qué el botón está deshabilitado
+            btnEditarPerfil.setOnClickListener {
+                Toast.makeText(mContext, "Solo disponible para estudiantes de la UES", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         binding.BtnCerrarSesion.setOnClickListener {
             firebaseAuth.signOut()
             startActivity(Intent(mContext,OpcionesLogin::class.java))
             activity?.finishAffinity()
         }
-        val btnEditarPerfil: Button = view.findViewById(R.id.btn_editar_perfil)
+
         btnEditarPerfil.setOnClickListener {
             val intent = Intent(mContext, FragmentPerfil::class.java)
             startActivity(intent)
@@ -82,6 +120,21 @@ class FragmentCuenta : Fragment() {
             leerInfo()
         }
     }
+
+    private fun ocultarCampos() {
+        // Aquí ocultas todos los campos y botones, por ejemplo:
+        binding.nombreEditText.visibility = View.GONE
+        binding.apellidoEditText.visibility = View.GONE
+        binding.municipioSpinner.visibility = View.GONE
+        binding.descripcionEditText.visibility = View.GONE
+        binding.carreraEditText.visibility = View.GONE
+        binding.telefonoEditText.visibility = View.GONE
+        binding.whatsappEditText.visibility = View.GONE
+        binding.btnVerCv.visibility = View.GONE
+        //binding.TvEmail.visibility = View.GONE
+        // Repite para todos los campos y botones que deseas ocultar
+    }
+
     private fun leerInfo() {
         val firestore = FirebaseFirestore.getInstance()
         firestore.collection("estudiantes")
@@ -93,9 +146,9 @@ class FragmentCuenta : Fragment() {
                     val apellido = document.getString("apellido") ?: "Apellido"
                     val email = firebaseAuth.currentUser?.email ?: "ab00000@gmail.com"
                     val imagen = document.getString("imageUrl") ?: ""
-                    val carrera = document.getString("carrera") ?: "Ingeniería en Sistemas (ejemplo)"
-                    val telefono = document.getString("telefono") ?: "0000-0000"
-                    val municipio = document.getString("municipio") ?: "Ahuachapán"
+                    val carrera = document.getString("carrera") ?: ""
+                    val telefono = document.getString("telefono") ?: ""
+                    val municipio = document.getString("municipio") ?: ""
                     val fechaNacimiento = document.getString("fechaNacimiento") ?: ""
                     val acercaDe = document.getString("acercaDe") ?: "Descripción no disponible"
                     val trabajosSeleccionados = document.get("trabajos") as? List<Map<String, String>> ?: emptyList()

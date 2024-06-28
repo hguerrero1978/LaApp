@@ -10,6 +10,7 @@ import android.view.Menu
 import android.view.SubMenu
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.CheckBox
 import android.widget.ImageButton
 import android.widget.TextView
@@ -141,6 +142,34 @@ class FragmentJovenes : Fragment() {
             }
             menu.add(Menu.NONE, Menu.NONE, Menu.NONE, " ").actionView = textView
         }
+
+        if (isExpanded) {
+            val textView = TextView(context).apply {
+                text = "Ver menos"
+                setOnClickListener {
+                    addItemsToMenu(menu, items, context, collectionName, isExpanded = false)
+                }
+            }
+            menu.add(Menu.NONE, Menu.NONE, Menu.NONE, " ").actionView = textView
+        }
+
+        val clearButton = Button(context).apply {
+            text = "Limpiar"
+            setOnClickListener {
+                clearSelections(menu)
+            }
+        }
+        menu.add(Menu.NONE, Menu.NONE, Menu.NONE, " ").actionView = clearButton
+    }
+
+    private fun clearSelections(menu: SubMenu) {
+        selectedOptions.clear()
+        for (i in 0 until menu.size()) {
+            val item = menu.getItem(i)
+            val checkBox = item.actionView as? CheckBox
+            checkBox?.isChecked = false
+        }
+        filterRecyclerView()
     }
 
     private fun obtenerCheckBoxesFromFirebase(navView: NavigationView) {

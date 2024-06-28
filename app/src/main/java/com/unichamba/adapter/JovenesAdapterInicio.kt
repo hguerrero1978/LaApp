@@ -74,7 +74,7 @@ private val onClickListener: (Joven) -> Unit) :
             }
         }
         // Método para obtener el ID del recurso drawable según el nombre del icono
-        private fun getIconResource(iconName: String): Any {
+        private fun getIconResource(iconName: String): Int {
             return itemView.context.resources.getIdentifier(
                 iconName,
                 "drawable",

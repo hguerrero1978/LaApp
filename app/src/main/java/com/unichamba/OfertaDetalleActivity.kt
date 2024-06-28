@@ -6,9 +6,11 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
@@ -25,6 +27,7 @@ class OfertaDetalleActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_quienPublica = "extra_quienPublica"
+        const val EXTRA_TELEFONO = "extra_telefono"
         const val EXTRA_DESCRIPTION = "extra_description"
         const val EXTRA_CARRERA = "extra_carrera"
         const val EXTRA_IMAGEN = "extra_imagen"
@@ -43,13 +46,13 @@ class OfertaDetalleActivity : AppCompatActivity() {
 
         // Obtén una referencia al botón "Aplicar"
         btnApply = findViewById(R.id.btnApply)
-
+        val userEmail = mAuth.currentUser?.email
         // Verifica si el usuario está autenticado
-        if (mAuth.currentUser != null) {
+        if (mAuth.currentUser != null && esEstudiante(userEmail)) {
             // Si el usuario está autenticado, habilita el botón "Aplicar"
             btnApply.isEnabled = true
         } else {
-            val customMessage = "Inicia sesión para aplicar a esta oferta!"
+            val customMessage = "Debes ser estudiante para aplicar a esta oferta!"
             val customToast = CustomToast(this, customMessage)
             customToast.show()
             btnApply.isEnabled = false
@@ -83,33 +86,19 @@ class OfertaDetalleActivity : AppCompatActivity() {
 
         // Configurar onClickListener para el botón "Aplicar"
         btnApply.setOnClickListener {
-            obtenerTelefono()
+            openWhatsApp()
         }
     }
 
-    private fun obtenerTelefono() {
-        val db = FirebaseFirestore.getInstance()
-        db.collection("estudiantes")
-            .whereEqualTo("email", quienPublicaText)
-            .get()
-            .addOnSuccessListener { documents ->
-                if (!documents.isEmpty) {
-                    val telefono = documents.documents[0].getString("telefono")
-                    telefono?.let { phoneNumber ->
-                        Log.d(TAG, phoneNumber)
-                        openWhatsApp(phoneNumber)
-                    }
-                } else {
-                    Log.d(TAG, "No se encontró el documento correspondiente al usuario.")
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.w(TAG, "Error obteniendo documentos: ", exception)
-            }
-    }
 
-    private fun openWhatsApp(phoneNumber: String) {
-        val message = "Hola, estoy interesado en aplicar a la oferta"
+    private fun esEstudiante(email: String?): Boolean {
+        // Verifica si el correo electrónico contiene un punto y termina con "@ues.edu.sv"
+        return email?.contains(".") == true && email.endsWith("@ues.edu.sv")
+    }
+   private fun openWhatsApp() {
+
+        val phoneNumber = intent.getStringExtra(EXTRA_TELEFONO) // Reemplaza con el número de teléfono al que deseas enviar el mensaje
+       val message = "Hola, estoy interesado en aplicar a la oferta" // Mensaje predeterminado
 
         val intent = Intent(Intent.ACTION_VIEW)
         intent.data = Uri.parse("https://wa.me/$phoneNumber/?text=${URLEncoder.encode(message, "UTF-8")}")
