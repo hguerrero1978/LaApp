@@ -181,8 +181,18 @@ class OpcionesLogin : AppCompatActivity() {
     private fun comprobarSesion(){
         val firebaseUser = firebaseAuth.currentUser
         if (firebaseUser != null) {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            // Obtener el correo electrónico del usuario actual
+            val email = firebaseUser.email
+            // Verificar si el correo electrónico cumple con el formato de empleado
+            if (email != null && email.matches(Regex("^[a-zA-Z]+\\.[a-zA-Z]+@ues\\.edu\\.sv$"))) {
+                // Si es empleado, redirigir a MainActivityR
+                val intent = Intent(this, MainActivityR::class.java)
+                startActivity(intent)
+            } else {
+                // Si no es empleado, redirigir a MainActivity
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
             finish()
         }
     }
