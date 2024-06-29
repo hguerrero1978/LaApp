@@ -7,6 +7,8 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -41,6 +43,7 @@ class FragmentNuevaOferta : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var telefonoEditText: EditText
     private lateinit var descriptionEditText: EditText
     private lateinit var submitButton: Button
     private lateinit var municipioAutoCompleteTextView: AutoCompleteTextView
@@ -51,7 +54,7 @@ class FragmentNuevaOferta : Fragment() {
     private val db = FirebaseFirestore.getInstance()
     private val mAuth = FirebaseAuth.getInstance()
     private var imageUri: Uri? = null
-    private var imageSmallUri: Uri? = null // Variable para la imagen redimensionada
+    private var imageSmallUri: Uri? = null
     private lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,6 +71,7 @@ class FragmentNuevaOferta : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_nueva_oferta, container, false)
 
+        telefonoEditText = view.findViewById(R.id.telefono)
         descriptionEditText = view.findViewById(R.id.description)
         submitButton = view.findViewById(R.id.Btn_publicar_oferta)
         municipioAutoCompleteTextView = view.findViewById(R.id.Et_municipio)
@@ -77,16 +81,35 @@ class FragmentNuevaOferta : Fragment() {
 
         progressDialog = ProgressDialog(context)
 
+        // Agregar TextWatcher para validar el formato del teléfono
+        telefonoEditText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+            override fun afterTextChanged(s: Editable?) {
+                if (s != null && !s.matches(Regex("\\d{4}-\\d{4}"))) {
+                    telefonoEditText.error = "Formato inválido. Ejemplo: 1234-5678"
+                }
+            }
+        })
+
         submitButton.setOnClickListener {
+            val telefono = telefonoEditText.text.toString()
             val description = descriptionEditText.text.toString()
             val municipio = municipioAutoCompleteTextView.text.toString()
             val carreras = carreraMultiAutoCompleteTextView.text.toString()
 
-            if (description.isNotEmpty() && municipio.isNotEmpty() && carreras.isNotEmpty()) {
+            if (telefono.isNotEmpty() && description.isNotEmpty() && municipio.isNotEmpty() && carreras.isNotEmpty()) {
+                if (!telefono.matches(Regex("\\d{4}-\\d{4}"))) {
+                    Toast.makeText(context, "Por favor, ingresa un número de teléfono válido", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+
                 if (imageUri != null) {
-                    uploadImageToStorage(description, municipio, carreras)
+                    uploadImageToStorage(description, municipio, carreras, telefono)
                 } else {
-                    publishOffer(description, municipio, carreras, null, null)
+                    publishOffer(description, municipio, carreras, null, null, telefono)
                 }
             } else {
                 Toast.makeText(context, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
@@ -149,7 +172,6 @@ class FragmentNuevaOferta : Fragment() {
                 imageUri = it
                 imageView.setImageURI(it)
 
-                // Redimensionar la imagen
                 val bitmap = MediaStore.Images.Media.getBitmap(requireContext().contentResolver, it)
                 val resizedBitmap = Bitmap.createScaledBitmap(bitmap, 200, 200, true)
                 val smallImageFile = File(requireContext().cacheDir, "smallImage.jpg")
@@ -163,7 +185,7 @@ class FragmentNuevaOferta : Fragment() {
         }
     }
 
-    private fun uploadImageToStorage(description: String, municipio: String, carreras: String) {
+    private fun uploadImageToStorage(description: String, municipio: String, carreras: String, telefono: String) {
         progressDialog.setMessage("Subiendo imagen a Storage")
         progressDialog.show()
 
@@ -179,14 +201,13 @@ class FragmentNuevaOferta : Fragment() {
                     if (task.isSuccessful) {
                         val urlImagenCargada = task.result.toString()
 
-                        // Subir la imagen redimensionada
                         smallRef.putFile(imageSmallUri!!)
                             .addOnSuccessListener { smallTaskSnapshot ->
                                 val smallUriTask = smallTaskSnapshot.storage.downloadUrl
                                 smallUriTask.addOnCompleteListener { smallTask ->
                                     if (smallTask.isSuccessful) {
                                         val urlSmallImagenCargada = smallTask.result.toString()
-                                        publishOffer(description, municipio, carreras, urlImagenCargada, urlSmallImagenCargada)
+                                        publishOffer(description, municipio, carreras, urlImagenCargada, urlSmallImagenCargada, telefono)
                                     } else {
                                         progressDialog.dismiss()
                                         Toast.makeText(context, "Error al obtener la URL de la imagen pequeña", Toast.LENGTH_SHORT).show()
@@ -209,15 +230,13 @@ class FragmentNuevaOferta : Fragment() {
             }
     }
 
-    private fun publishOffer(description: String, municipio: String, carreras: String, imageUrl: String?, smallImageUrl: String?) {
+    private fun publishOffer(description: String, municipio: String, carreras: String, imageUrl: String?, smallImageUrl: String?, telefono: String) {
         val currentUser = mAuth.currentUser
         if (currentUser != null) {
             val email = currentUser.email
             if (email != null) {
-                // Filtrar carreras vacías y espacios no deseados
                 val carrerasList = carreras.split(",").map { it.trim() }.filter { it.isNotEmpty() }
 
-                // Asignar "Aplican todas las carreras" si la lista está vacía
                 val finalCarrerasList = if (carrerasList.isEmpty()) {
                     listOf("Aplican todas las carreras")
                 } else {
@@ -227,10 +246,11 @@ class FragmentNuevaOferta : Fragment() {
                 val anuncio = hashMapOf(
                     "description" to description,
                     "direction" to municipio,
-                    "carrera" to finalCarrerasList, // Aquí se usa la lista final
+                    "carrera" to finalCarrerasList,
                     "quienPublica" to email,
-                    "imagen" to imageUrl, // Agrega la URL de la imagen normal al anuncio
-                    "imagenSmall" to smallImageUrl // Agrega la URL de la imagen redimensionada al anuncio
+                    "imagen" to imageUrl,
+                    "imagenSmall" to smallImageUrl,
+                    "telefono" to telefono
                 )
 
                 db.collection("anuncios")
@@ -241,7 +261,8 @@ class FragmentNuevaOferta : Fragment() {
                         descriptionEditText.text.clear()
                         municipioAutoCompleteTextView.text.clear()
                         carreraMultiAutoCompleteTextView.text.clear()
-                        imageView.setImageURI(null) // Limpia la imagen seleccionada
+                        telefonoEditText.text.clear()
+                        imageView.setImageURI(null)
                     }
                     .addOnFailureListener { e ->
                         progressDialog.dismiss()

@@ -79,24 +79,30 @@ class Registro_reclutador : AppCompatActivity() {
     }
 
     private fun authenticacionGoogle(idToken: String?) {
-        val credential= GoogleAuthProvider.getCredential(idToken, null)
-        firebaseAuth.signInWithCredential(credential)
-            .addOnSuccessListener {resultadoAuth->
-                if(resultadoAuth.additionalUserInfo!!.isNewUser){
-                    llenarInfoBD()
-                }else{
-                    startActivity(Intent(this,MainActivityR::class.java))
-                    finishAffinity()
+        if (idToken != null) {
+            val credential = GoogleAuthProvider.getCredential(idToken, null)
+            firebaseAuth.signInWithCredential(credential)
+                .addOnSuccessListener { authResult ->
+                    val firebaseUser = firebaseAuth.currentUser
+                    val email = firebaseUser!!.email
+                    // Verificar si el correo electrónico cumple con el formato de empleado
+                    if (email!!.matches(Regex("^[a-zA-Z]+\\.[a-zA-Z]+@ues\\.edu\\.sv$"))) {
+                        // Redirigir a MainActivityR si es empleado
+                        startActivity(Intent(this@Registro_reclutador, MainActivityR::class.java))
+                    } /*else {
+                        // Redirigir a MainActivity si no es empleado
+                        startActivity(Intent(this@Registro_reclutador, MainActivity::class.java))
+                    }*/
+                    finish()
                 }
-            }
-            .addOnFailureListener {e->
-                val customMessage = "${e.message}"
-                val customToast = CustomToast(this, customMessage)
-                customToast.show()
-            }
+                .addOnFailureListener { e ->
+                    Toast.makeText(this@Registro_reclutador, "Inicio de sesión fallido", Toast.LENGTH_SHORT)
+                        .show()
+                }
+        }
     }
 
-    private fun llenarInfoBD() {
+    /*private fun llenarInfoBD() {
         progressDialog.setMessage("Guardando información")
 
         val tiempo=Constantes.obtenerTiempoDis()
@@ -131,7 +137,7 @@ class Registro_reclutador : AppCompatActivity() {
                 val customToast = CustomToast(this, customMessage)
                 customToast.show()
             }
-    }
+    }*/
 
     private fun comprobarSesion(){
         if(firebaseAuth.currentUser!=null){

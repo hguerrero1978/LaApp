@@ -4,10 +4,12 @@ import JovenesAdapterInicio
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,6 +33,8 @@ class FragmentInicio : Fragment(R.layout.fragment_inicio) {
     private lateinit var recyclerViewJovenes: RecyclerView
     private lateinit var jovenesAdapterInicio: JovenesAdapterInicio
     private var listaJovenes: MutableList<Joven> = mutableListOf()
+    private lateinit var progressBarJovenesInicio: ProgressBar
+    private lateinit var progressBarOfertasInicio: ProgressBar
     private lateinit var auth: FirebaseAuth
 
     interface OnVerJovenesClickListener {
@@ -61,7 +65,7 @@ class FragmentInicio : Fragment(R.layout.fragment_inicio) {
     }
 
     private fun cargarOfertas() {
-
+        progressBarOfertasInicio.visibility = View.VISIBLE
         val db = FirebaseFirestore.getInstance()
         db.collection("anuncios")
             .limit(6)
@@ -75,13 +79,23 @@ class FragmentInicio : Fragment(R.layout.fragment_inicio) {
 
                 // Configurar el adaptador del RecyclerView
                 ofertaAdapterInicio.notifyDataSetChanged()
+                // Ocultar la barra de progreso en el hilo principal
+                activity?.runOnUiThread {
+                    progressBarOfertasInicio.visibility = View.GONE
+                }
             }
             .addOnFailureListener { exception ->
                 // Manejar errores aquí
+                Log.d("FragmentInicio", "Error getting documents: ", exception)
+                // Ocultar la barra de progreso en el hilo principal
+                activity?.runOnUiThread {
+                    progressBarOfertasInicio.visibility = View.GONE
+                }
             }
     }
 
     private fun cargarJovenes() {
+        progressBarJovenesInicio.visibility = View.VISIBLE
         val db = FirebaseFirestore.getInstance()
         db.collection("estudiantes")
             .limit(12)
@@ -98,9 +112,18 @@ class FragmentInicio : Fragment(R.layout.fragment_inicio) {
                     listaJovenes.add(joven)
                 }
                 jovenesAdapterInicio.notifyDataSetChanged()
+                // Ocultar la barra de progreso en el hilo principal
+                activity?.runOnUiThread {
+                    progressBarJovenesInicio.visibility = View.GONE
+                }
             }
             .addOnFailureListener { exception ->
                 // Manejar errores aquí
+                Log.d("FragmentInicio", "Error getting documents: ", exception)
+                // Ocultar la barra de progreso en el hilo principal
+                activity?.runOnUiThread {
+                    progressBarJovenesInicio.visibility = View.GONE
+                }
             }
     }
 
@@ -110,6 +133,8 @@ class FragmentInicio : Fragment(R.layout.fragment_inicio) {
         savedInstanceState: Bundle?
     ): View? {
         val rootView = inflater.inflate(R.layout.fragment_inicio, container, false)
+        progressBarJovenesInicio = rootView.findViewById(R.id.progressBarJovenesInicio)
+        progressBarOfertasInicio = rootView.findViewById(R.id.progressBarOfertasInicio)
         auth = FirebaseAuth.getInstance()
 
 

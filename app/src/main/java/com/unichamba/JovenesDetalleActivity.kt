@@ -4,12 +4,14 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -31,6 +33,8 @@ class JovenesDetalleActivity : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var btnApply: Button
     private lateinit var binding: JovenesDetalleActivity
+    private lateinit var progressBarJovenesDetalle: ProgressBar
+
 
 
     companion object {
@@ -76,6 +80,8 @@ class JovenesDetalleActivity : AppCompatActivity() {
         val whatsapp: TextView = findViewById(R.id.whatsapp)
         val trabajosIconosContainer: ViewGroup = findViewById(R.id.trabajosIconosContainer)
         val btnVerCV: Button = findViewById(R.id.btn_ver_cv)
+        progressBarJovenesDetalle = findViewById(R.id.progressBarJovenesDetalle)
+
         btnVerCV.setOnClickListener {
             verCV()
         }
@@ -91,10 +97,14 @@ class JovenesDetalleActivity : AppCompatActivity() {
         val intent = intent
         val documentId = intent.getStringExtra(EXTRA_ID) ?: ""
 
+        progressBarJovenesDetalle.visibility = View.VISIBLE
+
         // Obtener datos del estudiante desde Firestore
         val db = FirebaseFirestore.getInstance()
         db.collection("estudiantes").document(documentId).get()
             .addOnSuccessListener { document ->
+                progressBarJovenesDetalle.visibility = View.GONE // Ocultar ProgressBar
+
                 if (document != null) {
                     nombre.text = document.getString("nombre")
                     apellido.text = document.getString("apellido")
@@ -147,6 +157,8 @@ class JovenesDetalleActivity : AppCompatActivity() {
             }
             .addOnFailureListener { exception ->
                 // Manejar error
+                Log.d("JovenesDetalleActivity", "Error obteniendo los documentos: ", exception)
+                progressBarJovenesDetalle.visibility = View.GONE // Ocultar ProgressBar
             }
 
         // Configurar onClickListener para el botón "Aplicar"

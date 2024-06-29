@@ -5,262 +5,274 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".JovenesDetalleActivity">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:theme="?attr/actionBarTheme"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:navigationIcon="@drawable/ic_regresar"/>
+        app:navigationIcon="@drawable/ic_regresar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/toolbar"
-        android:layout_alignParentTop="false"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="false"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
-        android:layout_marginTop="15dp"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imagen"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:contentDescription="UniChamba"
-            android:src="@drawable/perfil"/>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/nombre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nombre"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="2dp"/>
-
-            <TextView
-                android:id="@+id/apellido"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Apellido"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="2dp"/>
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/acercaDe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Description"
-            android:layout_marginTop="8dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Trabajos"
-            android:textStyle="bold"
-            android:textSize="16sp"/>
-
-        <LinearLayout
-            android:id="@+id/trabajosIconosContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:tint="@color/black"/>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="45dp"
-                android:text="Fecha de nacimiento: "
-                android:textStyle="bold"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/fecha_de_nacimiento"/>
-
-            <TextView
-                android:id="@+id/fecNacimiento"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="fecha de nacimiento"
-                android:layout_marginTop="8dp"
-                android:layout_gravity="center"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="45dp"
-                android:text="Municipio: "
-                android:textStyle="bold"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/location"/>
-
-            <TextView
-                android:id="@+id/municipio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="municipio"
-                android:layout_marginTop="8dp"
-                android:layout_gravity="center"/>
-
-        </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="45dp"
-                android:text="Carrera: "
-                android:textStyle="bold"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/career"/>
-            <TextView
-                android:id="@+id/carrera"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Carrera"
-                android:layout_marginTop="8dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="45dp"
-                android:text="Email: "
-                android:textStyle="bold"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/email"
-                app:tint="@color/black" />
-            <TextView
-                android:id="@+id/email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="email"
-                android:layout_marginTop="8dp"
-                android:layout_gravity="center"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="45dp"
-                android:text="telefono: "
-                android:textStyle="bold"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/telephone"/>
-
-            <TextView
-                android:id="@+id/telefono"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="celular"
-                android:layout_marginTop="8dp"
-                android:layout_gravity="center"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="45dp"
-                android:text="Whatsapp: "
-                android:textStyle="bold"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/whatsapp"/>
-
-            <TextView
-                android:id="@+id/whatsapp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="whatsapp"
-                android:layout_marginTop="8dp"
-                android:layout_gravity="center"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="45dp"
-                android:text="Fecha de registro: "
-                android:textStyle="bold"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/dato_de_registro"/>
-
-            <TextView
-                android:id="@+id/fecRegistro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="fecha de registro"
-                android:layout_marginTop="8dp"
-                android:layout_gravity="center"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar"
+            android:layout_marginTop="15dp"
             android:orientation="vertical"
-            android:padding="16dp"
-            android:gravity="center">
+            android:padding="16dp">
 
-            <Button
-                android:id="@+id/btn_ver_cv"
+            <ProgressBar
+                android:id="@+id/progressBarJovenesDetalle"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imagen"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:contentDescription="UniChamba"
+                android:src="@drawable/perfil" />
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ver CV" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/nombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="2dp"
+                    android:text="Nombre"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/apellido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Apellido"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/acercaDe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Description" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Trabajos"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/trabajosIconosContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:tint="@color/black" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/fecha_de_nacimiento"
+                    android:text="Fecha de nacimiento: "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/fecNacimiento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:text="fecha de nacimiento" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/location"
+                    android:text="Municipio: "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/municipio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:text="municipio" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/career"
+                    android:text="Carrera: "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/carrera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:text="Carrera" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/email"
+                    android:text="Email: "
+                    android:textStyle="bold"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:text="email" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/telephone"
+                    android:text="telefono: "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/telefono"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:text="celular" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/whatsapp"
+                    android:text="Whatsapp: "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/whatsapp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:text="whatsapp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/dato_de_registro"
+                    android:text="Fecha de registro: "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/fecRegistro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:text="fecha de registro" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <Button
+                    android:id="@+id/btn_ver_cv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ver CV" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
-
-
-    </LinearLayout>
 
     </ScrollView>
 </RelativeLayout>

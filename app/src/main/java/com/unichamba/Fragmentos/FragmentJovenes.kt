@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.ImageButton
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.GravityCompat
@@ -48,6 +49,7 @@ class FragmentJovenes : Fragment() {
     private lateinit var jovenesAdapter: JovenesAdapter
     private var listaJovenes: MutableList<Joven> = mutableListOf()
     private val selectedOptions = mutableSetOf<String>()
+    private lateinit var progressBarJovenes: ProgressBar
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -61,6 +63,8 @@ class FragmentJovenes : Fragment() {
         val navView: NavigationView = view.findViewById(R.id.nav_view)
         val recyclerJovenes: RecyclerView = view.findViewById(R.id.recycler_jovenes)
         val searchView: SearchView = view.findViewById(R.id.search_joven)  // Añadido SearchView
+        progressBarJovenes = view.findViewById(R.id.progressBarJovenes)
+
 
         // Configurar el RecyclerView
         recyclerJovenes.layoutManager = LinearLayoutManager(context)
@@ -234,6 +238,7 @@ class FragmentJovenes : Fragment() {
     }
 
     private fun obtenerJovenes() {
+        progressBarJovenes.visibility = View.VISIBLE
         val estudiantesRef = FirebaseFirestore.getInstance().collection("estudiantes")
         estudiantesRef.get()
             .addOnSuccessListener { result ->
@@ -253,9 +258,17 @@ class FragmentJovenes : Fragment() {
                 listaJovenes.clear()
                 listaJovenes.addAll(lista)
                 jovenesAdapter.notifyDataSetChanged()
+                // Ocultar la barra de progreso en el hilo principal
+                activity?.runOnUiThread {
+                    progressBarJovenes.visibility = View.GONE
+                }
             }
             .addOnFailureListener { exception ->
                 Log.w("FragmentJovenes", "Error getting documents: ", exception)
+                // Ocultar la barra de progreso en el hilo principal
+                activity?.runOnUiThread {
+                    progressBarJovenes.visibility = View.GONE
+                }
             }
     }
 

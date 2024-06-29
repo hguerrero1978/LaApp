@@ -34,6 +34,13 @@
             android:textStyle="bold" />
         <!-- esto es para fines de diseño aqui se utiliza 1 solo y se cambian los valores -->
 
+        <ProgressBar
+            android:id="@+id/progressBarJovenesInicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_jovenes_inicio"
             android:layout_width="match_parent"
@@ -77,6 +84,13 @@
             android:textColor="@android:color/white"
             android:textSize="25sp"
             android:textStyle="bold" />
+
+        <ProgressBar
+            android:id="@+id/progressBarOfertasInicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_ofertas"

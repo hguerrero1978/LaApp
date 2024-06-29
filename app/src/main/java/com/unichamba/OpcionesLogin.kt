@@ -58,6 +58,9 @@ class OpcionesLogin : AppCompatActivity() {
         binding.IngresarGoogle.setOnClickListener {
             googleLogin()
         }
+        /*binding.registrarmeR.setOnClickListener {
+            startActivity(Intent(this@OpcionesLogin,Registro_reclutador::class.java))
+        }*/
 
 
 
@@ -102,7 +105,8 @@ class OpcionesLogin : AppCompatActivity() {
                     val email = firebaseUser!!.email
                     // Verificar si el correo electrónico cumple con el formato de empleado
                     if (email!!.matches(Regex("^[a-zA-Z]+\\.[a-zA-Z]+@ues\\.edu\\.sv$"))) {
-                        // Redirigir a MainActivityR si es empleado
+                        // Enviar una alerta al usuario si es empleado
+                        //Toast.makeText(this@OpcionesLogin, "Inicio de sesión fallido,dirígete al registro del reclutador si deseas ingresar de esa forma", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this@OpcionesLogin, MainActivityR::class.java))
                     } else {
                         // Redirigir a MainActivity si no es empleado
@@ -111,8 +115,7 @@ class OpcionesLogin : AppCompatActivity() {
                     finish()
                 }
                 .addOnFailureListener { e ->
-                    Toast.makeText(this@OpcionesLogin, "Inicio de sesión fallido", Toast.LENGTH_SHORT)
-                        .show()
+                    Toast.makeText(this@OpcionesLogin, "Inicio de sesión fallido", Toast.LENGTH_SHORT).show()
                 }
         }
     }
@@ -181,19 +184,12 @@ class OpcionesLogin : AppCompatActivity() {
     private fun comprobarSesion(){
         val firebaseUser = firebaseAuth.currentUser
         if (firebaseUser != null) {
-            // Obtener el correo electrónico del usuario actual
-            val email = firebaseUser.email
-            // Verificar si el correo electrónico cumple con el formato de empleado
-            if (email != null && email.matches(Regex("^[a-zA-Z]+\\.[a-zA-Z]+@ues\\.edu\\.sv$"))) {
-                // Si es empleado, redirigir a MainActivityR
-                val intent = Intent(this, MainActivityR::class.java)
-                startActivity(intent)
-            } else {
-                // Si no es empleado, redirigir a MainActivity
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-            }
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
             finish()
         }
     }
+
+    /* */
+
 }

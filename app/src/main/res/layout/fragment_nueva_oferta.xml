@@ -26,7 +26,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
-                    android:layout_marginTop="216dp"
+                    android:layout_marginTop="160dp"
                     android:layout_marginEnd="32dp"
                     android:gravity="center"
                     android:text="@string/crear_una_oferta"
@@ -41,8 +41,37 @@
                     android:id="@+id/imageView5"
                     android:layout_width="264dp"
                     android:layout_height="137dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="24dp"
                     android:src="@drawable/enquiry_bk"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.551"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="200dp"
+                    android:layout_marginEnd="32dp"
+                    android:gravity="center"
+                    android:text="telefono*"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.496"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/telefono"
+                    android:layout_width="255dp"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="232dp"
+                    android:ems="10"
+                    android:hint="####-####"
+                    android:inputType="text"
+                    android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.496"
                     app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +82,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
-                    android:layout_marginTop="280dp"
+                    android:layout_marginTop="304dp"
                     android:layout_marginEnd="32dp"
                     android:gravity="center"
                     android:text="@string/municipio"
@@ -115,22 +144,22 @@
                         tools:ignore="SpeakableTextPresentCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+
                 <TextView
                     android:id="@+id/textView8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
-                    android:layout_marginTop="408dp"
+                    android:layout_marginTop="424dp"
                     android:layout_marginEnd="32dp"
                     android:gravity="center"
                     android:text="@string/carrera"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="HardcodedText" />
-
 
                 <TextView
                     android:id="@+id/textView5"
@@ -150,8 +179,8 @@
 
                 <Button
                     android:id="@+id/Btn_seleccionar"
-                    android:layout_width="222dp"
-                    android:layout_height="48dp"
+                    android:layout_width="265dp"
+                    android:layout_height="58dp"
                     android:backgroundTint="#1AD361"
                     android:text="@string/seleccionar"
 

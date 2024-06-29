@@ -10,6 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ProgressBar
+            android:id="@+id/progressBarJovenes"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/search_joven"
+            android:visibility="gone" />
+
         <!-- Contenido principal aquí (incluyendo RecyclerView) -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_jovenes"
