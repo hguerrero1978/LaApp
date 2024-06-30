@@ -8,6 +8,7 @@ import com.unichamba.Fragmentos.FragmentCuenta
 import com.unichamba.Fragmentos.FragmentNuevaOferta
 import com.google.firebase.auth.FirebaseAuth
 import android.app.Dialog
+import android.net.Uri
 import android.widget.Button
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
@@ -62,6 +63,27 @@ class MainActivityR : AppCompatActivity(){
             }
 
         }
+        navView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.Item_sitio1 -> {
+                    abrirSitioWeb("https://www.unichamba.com/")
+                    true
+                }
+
+                R.id.Item_Terminos1 -> {
+                    abrirSitioWeb("https://website-unichamba.netlify.app/policy")
+                    drawerLayout.closeDrawer(GravityCompat.START)
+                    true
+                }
+
+                R.id.Item_Quienes_Somos1 -> {
+                    abrirSitioWeb("https://website-unichamba.netlify.app/details")
+                    drawerLayout.closeDrawer(GravityCompat.START)
+                    true
+                }
+                else -> false
+            }
+        }
 
 
     }
@@ -108,6 +130,12 @@ class MainActivityR : AppCompatActivity(){
         val fragmentTransition = supportFragmentManager.beginTransaction()
         fragmentTransition.replace(binding.FragmentL1!!.id, fragment, "FragmentCuenta")
         fragmentTransition.commit()
+    }
+
+    private fun abrirSitioWeb(url: String = "") {
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse(url)
+        startActivity(intent)
     }
 
     private fun verFragmentNuevaOfertaR() {

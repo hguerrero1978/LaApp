@@ -24,6 +24,15 @@
         android:theme="@style/Theme.AppUniChamba"
         tools:targetApi="31">
         <activity
+            android:name=".LauncherActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".JovenesDetalleActivity"
             android:exported="false" />
         <activity
@@ -70,14 +79,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".OfertaDetalleActivity"
             android:screenOrientation="portrait"

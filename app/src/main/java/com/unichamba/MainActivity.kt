@@ -83,15 +83,16 @@ class MainActivity : AppCompatActivity(),FragmentInicio.OnVerOfertasClickListene
                     abrirSitioWeb("https://www.unichamba.com/")
                     true
                 }
-                R.id.Item_Inicio -> {
-                    verFragmentInicio()
-                    drawerLayout.closeDrawer(GravityCompat.START)
-                    binding.BottonNV?.selectedItemId = R.id.Item_Inicio
-                    true
-                }
+
 
                 R.id.Item_Terminos -> {
                     abrirSitioWeb("https://website-unichamba.netlify.app/policy")
+                    drawerLayout.closeDrawer(GravityCompat.START)
+                    true
+                }
+
+                R.id.Item_Quienes_Somos -> {
+                    abrirSitioWeb("https://website-unichamba.netlify.app/details")
                     drawerLayout.closeDrawer(GravityCompat.START)
                     true
                 }
@@ -129,6 +130,7 @@ class MainActivity : AppCompatActivity(),FragmentInicio.OnVerOfertasClickListene
             // Si el usuario no ha iniciado sesión, redirigirlo a la pantalla de inicio de sesión
             startActivity(Intent(this, OpcionesLogin::class.java)) // Cierra todas las actividades previas
         }
+
     }
 
 
