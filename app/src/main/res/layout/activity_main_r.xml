@@ -99,7 +99,7 @@
 
         <!-- Menú lateral (NavigationView) -->
         <com.google.android.material.navigation.NavigationView
-            android:id="@+id/mi_menu1"
+            android:id="@+id/mi_menu2"
             android:layout_width="250dp"
             android:layout_height="match_parent"
             android:layout_gravity="start"
@@ -107,7 +107,19 @@
 
             app:itemTextColor="@color/white"
             app:labelVisibilityMode="labeled"
-            app:menu="@menu/mi_menu1" />
+            app:menu="@menu/mi_menu2"
+            app:headerLayout="@layout/nav_header">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="bottom"
+                android:orientation="vertical">
+
+                <include layout="@layout/nav_footer" />
+            </LinearLayout>
+
+        </com.google.android.material.navigation.NavigationView>
 
     </androidx.drawerlayout.widget.DrawerLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

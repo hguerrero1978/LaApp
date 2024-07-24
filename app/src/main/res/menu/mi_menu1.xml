@@ -7,6 +7,11 @@
         android:icon="@drawable/ic_agregar"
         />
 
+    <item
+        android:id="@+id/Item_Mis_Ofertas"
+        android:title="@string/Item_Mis_Ofertas"
+        android:icon="@drawable/ic_mis_ofertas"
+        />
 
     <item
         android:id="@+id/Item_Cuenta"

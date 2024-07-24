@@ -357,6 +357,7 @@
                     android:id="@+id/btn_ver_cv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#1AD361"
                     android:text="Ver CV"
                     android:visibility="gone" />
 
@@ -379,6 +380,7 @@
                     android:paddingHorizontal="50dp"
                     android:paddingVertical="15dp"
                     android:text="EDITAR PERFIL"
+                    android:backgroundTint="#1AD361"
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"/>
 

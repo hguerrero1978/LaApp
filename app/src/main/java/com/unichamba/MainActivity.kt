@@ -11,6 +11,7 @@ import com.unichamba.Fragmentos.FragmentNuevaOferta
 import com.unichamba.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import android.app.Dialog
+import android.content.Context
 import android.net.Uri
 import android.view.ViewGroup
 import android.widget.Button

@@ -49,7 +49,8 @@
                 android:padding="10dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_menu_hamburger"
-                app:tint="@color/white" />
+                app:tint="@color/white"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <View
                 android:layout_width="match_parent"
@@ -80,12 +81,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            app:tint="@color/white"
-            android:backgroundTint="@color/negro1"
             android:background="#04061A"
+            android:backgroundTint="@color/negro1"
             app:itemTextColor="@color/white"
             app:labelVisibilityMode="labeled"
-            app:menu="@menu/mi_menu" />
+            app:menu="@menu/mi_menu"
+            app:tint="@color/white" />
 
     </RelativeLayout>
 
@@ -97,8 +98,20 @@
         android:layout_gravity="start"
         android:background="@color/blued"
 
+        app:headerLayout="@layout/nav_header"
         app:itemTextColor="@color/white"
         app:labelVisibilityMode="labeled"
-        app:menu="@menu/mi_menu0" />
+        app:menu="@menu/mi_menu0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <include layout="@layout/nav_footer" />
+        </LinearLayout>
+
+    </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>

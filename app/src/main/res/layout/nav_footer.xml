@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/blued"
+    android:gravity="center"
+    android:layout_gravity="bottom">
+
+    <ImageView
+        android:id="@+id/footerLogo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/minerva_sola_white"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="© 2024 UNICHAMBA App"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:textSize="14sp"
+        android:paddingTop="8dp"/>
+</LinearLayout>

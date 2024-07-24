@@ -1,6 +1,7 @@
 package com.unichamba
 
 import android.content.Intent
+import android.app.Activity
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,12 +9,14 @@ import com.unichamba.Fragmentos.FragmentCuenta
 import com.unichamba.Fragmentos.FragmentNuevaOferta
 import com.google.firebase.auth.FirebaseAuth
 import android.app.Dialog
+import android.content.Context
 import android.net.Uri
 import android.widget.Button
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import android.widget.ImageButton
 import androidx.core.view.GravityCompat
+import com.unichamba.Fragmentos.FragmentMisOfertas
 import com.unichamba.databinding.ActivityMainRBinding
 
 
@@ -22,6 +25,7 @@ class MainActivityR : AppCompatActivity(){
     private lateinit var binding: ActivityMainRBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var drawerLayout: DrawerLayout
+    private lateinit var mContext: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +37,7 @@ class MainActivityR : AppCompatActivity(){
 
 
         drawerLayout = findViewById(R.id.drawer_layout)
-        val navView = findViewById<NavigationView>(R.id.mi_menu1)
+        val navView = findViewById<NavigationView>(R.id.mi_menu2)
         val hamburgerButton = findViewById<ImageButton>(R.id.btnBack)
         hamburgerButton.setOnClickListener {
             if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -54,6 +58,11 @@ class MainActivityR : AppCompatActivity(){
 
                 R.id.Item_Publicar_Oferta-> {
                     comprobarSesion()
+                    true
+                }
+
+                R.id.Item_Mis_Ofertas -> {
+                    verFragmentMisOfertas()
                     true
                 }
 
@@ -84,7 +93,6 @@ class MainActivityR : AppCompatActivity(){
                 else -> false
             }
         }
-
 
     }
 
@@ -136,6 +144,14 @@ class MainActivityR : AppCompatActivity(){
         val intent = Intent(Intent.ACTION_VIEW)
         intent.data = Uri.parse(url)
         startActivity(intent)
+    }
+
+    private fun verFragmentMisOfertas() {
+        binding.TituloRL!!.text = "Ofertas"
+        val fragment = FragmentMisOfertas()
+        val fragmentTransition = supportFragmentManager.beginTransaction()
+        fragmentTransition.replace(binding.FragmentL1!!.id, fragment, "FragmentMisOfertas")
+        fragmentTransition.commit()
     }
 
     private fun verFragmentNuevaOfertaR() {

@@ -87,7 +87,8 @@
                 android:layout_height="wrap_content"
                 android:text="Trabajos"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"/>
 
             <LinearLayout
                 android:id="@+id/trabajosIconosContainer"
@@ -256,23 +257,29 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/btn_whatsapp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:text="Contactar por WhatsApp"
+                android:backgroundTint="#1AD361"
+                android:layout_marginEnd="5dp"/>
 
-                <Button
-                    android:id="@+id/btn_ver_cv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Ver CV" />
-
-            </LinearLayout>
-
-
+            <Button
+                android:id="@+id/btn_ver_cv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:backgroundTint="#1AD361"
+                android:text="Ver CV" />
         </LinearLayout>
-
+        </LinearLayout>
     </ScrollView>
 </RelativeLayout>

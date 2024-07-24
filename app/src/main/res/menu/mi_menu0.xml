@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/Item_sitio"
-        android:title="Sitio_Web"
+        android:title="Version Web"
         android:icon="@drawable/computer"
         android:clickable="true"/>
 
@@ -17,9 +17,7 @@
     <item
         android:id="@+id/Item_Quienes_Somos"
         android:title="¿Quienes Somos?"
-        android:icon="@drawable/person_apron"
+        android:icon="@drawable/baseline_groups_25"
         android:clickable="true"/>
-
-
 </menu>
 

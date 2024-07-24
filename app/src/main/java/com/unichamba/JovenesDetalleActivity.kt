@@ -80,6 +80,8 @@ class JovenesDetalleActivity : AppCompatActivity() {
         val whatsapp: TextView = findViewById(R.id.whatsapp)
         val trabajosIconosContainer: ViewGroup = findViewById(R.id.trabajosIconosContainer)
         val btnVerCV: Button = findViewById(R.id.btn_ver_cv)
+        val btnWhatsapp: Button = findViewById(R.id.btn_whatsapp)
+
         progressBarJovenesDetalle = findViewById(R.id.progressBarJovenesDetalle)
 
         btnVerCV.setOnClickListener {
@@ -150,7 +152,18 @@ class JovenesDetalleActivity : AppCompatActivity() {
                             trabajosIconosContainer.addView(iconoView)
                         }
                     }
-
+                    // Configurar el botón de contacto de WhatsApp
+                    val numeroWhatsapp = document.getString("whatsapp")
+                    if (!numeroWhatsapp.isNullOrEmpty()) {
+                        btnWhatsapp.setOnClickListener {
+                            val uri = Uri.parse("https://wa.me/$numeroWhatsapp")
+                            val intent = Intent(Intent.ACTION_VIEW, uri)
+                            startActivity(intent)
+                        }
+                    } else {
+                        //btnContactarWhatsapp.visibility = View.GONE // Ocultar el botón si no hay número de WhatsApp
+                        Toast.makeText(this, "Número de WhatsApp no disponible", Toast.LENGTH_SHORT).show()
+                    }
                 } else {
                     // Manejar caso donde el documento no existe
                 }
